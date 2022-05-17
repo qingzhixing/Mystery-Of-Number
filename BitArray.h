@@ -176,7 +176,7 @@ public:
         }
     }
 
-private:
+protected:
     //数据从0~arraySize-1
     //低位在前，高位在后
     BoolArray data; 
