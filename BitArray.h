@@ -13,7 +13,9 @@ public:
     typedef std::array<bool, arraySize> BoolArray;
 
 public:
-    BitArray(){};
+    BitArray(){
+        this->Clear();
+    };
     BitArray(const BitArray& instance){
         this->data = instance.data;
     }
@@ -174,6 +176,9 @@ public:
             }
             
         }
+    }
+    const BoolArray& GetConstData()const{
+        return this->data;
     }
 
 protected:
