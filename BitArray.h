@@ -149,6 +149,32 @@ public:
         }
         return std::move(str);
     }
+    void LogicalShiftRight(SizeType distance){
+        //distance>=arraySize时取模
+        distance%=arraySize;
+        //移位
+        for(SizeType i = 0; i < arraySize; ++i){
+            if(i<arraySize-distance){
+                this->data[i] = this->data[i+distance];
+            }else{
+                this->data[i] = 0;
+            }
+        }
+    }
+    void LogicalShiftLeft(SizeType distance){
+        //distance>=arraySize时取模
+        distance%=arraySize;
+        //移位
+        //int i防止SizeType负溢出
+        for(int i = arraySize-1; i >= 0; --i){
+            if(i>=distance){
+                this->data[i] = this->data[i-distance];
+            }else{
+                this->data[i] = 0;
+            }
+            
+        }
+    }
 
 private:
     //数据从0~arraySize-1

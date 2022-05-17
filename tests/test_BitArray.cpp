@@ -49,4 +49,15 @@ int main(){
 
     cout<<"ToHexString()"<<endl;
     cout<<array.ToHexString()<<endl;
+
+    TestType array9(array);
+    cout<<"LogicalShiftRight(3)"<<endl;
+    array9.LogicalShiftRight(3);
+    cout<<array9.DataToString()<<endl;
+
+    TestType array10(array);
+    cout<<"LogicalShiftLeft(3)"<<endl;
+    array10.LogicalShiftLeft(3);
+    cout<<array10.DataToString()<<endl;
+    cout<<"OK"<<endl;
 }
