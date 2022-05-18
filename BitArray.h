@@ -143,6 +143,10 @@ public:
         str="0x"+str;
         return std::move(str);
     }
+    std::string ToDecString()const{
+        std::string str;
+        //no complete
+    }
     //注意，此时str是ToBinString()的返回值的反转
     std::string DataToString()const{
         std::string str;

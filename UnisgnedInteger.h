@@ -8,6 +8,7 @@ class UnsignedInteger
     :public BitArray<size>{
 public:
     typedef BitArray<size> Base;
+    const static size_t arraySize = size;
 
 public:
     UnsignedInteger(){};
@@ -16,8 +17,12 @@ public:
     UnsignedInteger(const UnsignedInteger& instance):Base(instance){};
     UnsignedInteger(Base&& baseInstance):Base(std::move(baseInstance)){};
     UnsignedInteger(UnsignedInteger&& instance):Base(std::move(instance)){};
-    UnsignedInteger(int64_t value){
-        //no completed
+    UnsignedInteger(uint64_t value){
+        int index=0;//存储到第几位
+        while(value&&index<arraySize){
+            this->data[index++] = value&1;
+            value>>=1;
+        }
     }
 
     UnsignedInteger& operator=(const UnsignedInteger& instance){

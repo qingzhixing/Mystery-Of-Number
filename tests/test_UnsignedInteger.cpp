@@ -2,13 +2,17 @@
 using namespace std;
 #include "../UnisgnedInteger.h"
 int main(){
-    UnsignedInteger<32> empty;
+    typedef UnsignedInteger<64> TestType;
+    TestType empty;
     cout<<empty.DataToString()<<endl;
-    UnsignedInteger<32> array("1111111111111111111111111111111111111111111111111111111111111111");
+    TestType array("1111111111111111111111111111111111111111111111111111111111111111");
     cout<<array.DataToString()<<endl;
-    UnsignedInteger<32> instanceByInstance(empty);
+    TestType instanceByInstance(empty);
     cout<<instanceByInstance.DataToString()<<endl;
-    BitArray<32> instanceByUnsignedInteger(empty);
+    TestType::Base instanceByUnsignedInteger(empty);
     cout<<instanceByUnsignedInteger.DataToString()<<endl;
+    TestType instanceByUInt(1145141919810U);
+    instanceByUInt.LogicalShiftLeft (4);
+    cout<<instanceByUInt.ToHexString()<<endl;
     return 0;
 }
